@@ -1,15 +1,17 @@
 package com.uls.demobooks.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="owner")
+    private Owner owner;
+
     private String isbn, autor, titulo, editorial;
     private int añoPublicacion, edicion;
 
@@ -22,6 +24,14 @@ public class Book {
         this.isbn = isbn;
         this.edicion = edicion;
         this.titulo = titulo;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
     public String getAutor() {
