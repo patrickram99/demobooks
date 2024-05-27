@@ -17,13 +17,14 @@ public class Book {
 
     public Book() {}
 
-    public Book(String autor, int añoPublicacion, String editorial, String isbn, int edicion, String titulo) {
+    public Book(String autor, int añoPublicacion, String editorial, String isbn, int edicion, String titulo, Owner owner) {
         this.autor = autor;
         this.añoPublicacion = añoPublicacion;
         this.editorial = editorial;
         this.isbn = isbn;
         this.edicion = edicion;
         this.titulo = titulo;
+        this.owner = owner;
     }
 
     public Owner getOwner() {
