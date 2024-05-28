@@ -12,19 +12,28 @@ public class Book {
     @JoinColumn(name="owner")
     private Owner owner;
 
-    private String isbn, autor, titulo, editorial;
-    private int añoPublicacion, edicion;
+    private String isbn, autor, titulo, editorial, opinion;
+    private int añoPublicacion, rating;
 
     public Book() {}
 
-    public Book(String autor, int añoPublicacion, String editorial, String isbn, int edicion, String titulo, Owner owner) {
+    public Book(String autor, int añoPublicacion, String editorial, String isbn, int rating, String titulo, String opinion, Owner owner) {
         this.autor = autor;
+        this.opinion = opinion;
         this.añoPublicacion = añoPublicacion;
         this.editorial = editorial;
         this.isbn = isbn;
-        this.edicion = edicion;
+        this.rating = rating;
         this.titulo = titulo;
         this.owner = owner;
+    }
+
+    public String getOpinion() {
+        return opinion;
+    }
+
+    public void setOpinion(String opinion) {
+        this.opinion = opinion;
     }
 
     public Owner getOwner() {
@@ -75,12 +84,12 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public int getEdicion() {
-        return edicion;
+    public int getrating() {
+        return rating;
     }
 
-    public void setEdicion(int edicion) {
-        this.edicion = edicion;
+    public void setrating(int rating) {
+        this.rating = rating;
     }
 
     public String getTitulo() {
